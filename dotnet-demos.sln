@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_Jwt", "Demo_Jwt\Demo_Jwt.csproj", "{62EF516F-C799-43C5-9966-6A01E1F2AA5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_Serilog", "Demo_Serilog\Demo_Serilog.csproj", "{400D6228-FD58-4925-9B84-0460C2C5DAB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_Serilog", "Demo_Serilog\Demo_Serilog.csproj", "{400D6228-FD58-4925-9B84-0460C2C5DAB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_Autofac", "Demo_Autofac\Demo_Autofac.csproj", "{B7D7686A-736C-411C-AAD9-72EE83E4BD38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{400D6228-FD58-4925-9B84-0460C2C5DAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400D6228-FD58-4925-9B84-0460C2C5DAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400D6228-FD58-4925-9B84-0460C2C5DAB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

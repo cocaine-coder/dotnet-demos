@@ -2,7 +2,9 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//从配置文档中配置serilog
+/// <summary>
+/// 从配置文档中配置serilog
+/// </summary>
 builder.Host.UseSerilog((hostBuilderContext, loggerConfiguration) =>
 {
     loggerConfiguration.ReadFrom.Configuration(hostBuilderContext.Configuration);
@@ -39,6 +41,8 @@ app.UseSerilogRequestLogging(options =>
         diagnosticContext.Set("EndpointName", httpContext.GetEndpoint()?.DisplayName);
     };
 });
+
+#region api
 
 /// <summary>
 /// 测试日志等级
@@ -87,6 +91,8 @@ app.MapGet("log_notice", (Serilog.ILogger logger) =>
     Log.Information("The time is " + DateTime.Now);
     // Do:
     Log.Information("The time is {Now}", DateTime.Now);
-});
+}); 
+
+#endregion
 
 app.Run();
