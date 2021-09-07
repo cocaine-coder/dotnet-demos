@@ -3,6 +3,9 @@ using Demo_Autofac.Repositories;
 
 namespace Demo_Autofac.Services;
 
+/// <summary>
+/// 依赖IMathService，测试MathService创建实例的方式
+/// </summary>
 public interface IUseMathService
 {
     double Add(double x1, double x2);

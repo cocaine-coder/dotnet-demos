@@ -4,8 +4,13 @@ using Demo_Autofac.Aop;
 
 namespace Demo_Autofac.Services;
 
+/// <summary>
+/// 测试AOP 以及泛型动态注入
+/// </summary>
+/// <typeparam name="TKey"></typeparam>
+/// <typeparam name="TEntity"></typeparam>
 [Intercept(typeof(CustomAutofacAop))]
-public interface ITemplateService<TKey, TEntity> 
+public interface ITemplateService<TKey, TEntity>
 {
     void GetNode(TKey key);
 

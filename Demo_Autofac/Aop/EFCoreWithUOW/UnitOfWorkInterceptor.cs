@@ -1,8 +1,6 @@
 ﻿
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using System.Reflection;
 
 namespace Demo_Autofac.Aop;
@@ -14,29 +12,11 @@ namespace Demo_Autofac.Aop;
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface)]
 public class UnitOfWorkAttribute : Attribute
 {
+    public UnitOfWorkAttribute(bool isDisabled = false)
+    {
+        IsDisabled = isDisabled;
+    }
     public bool IsDisabled { get; set; }
-}
-
-/// <summary>
-/// 这里只写了接口，具体的个人实现吧
-/// </summary>
-public interface IUnitOfWork : IDisposable
-{
-    DbContext GetDbContext();
-
-    IDbContextTransaction BeginTransaction();
-
-    int SaveChanges();
-
-    Task<int> SaveChangesAsync();
-
-    void Complete(IDbContextTransaction transaction);
-
-    Task CompleteAsync(IDbContextTransaction transaction);
-
-    void RollBackChanges(IDbContextTransaction transaction);
-
-    Task RollBackChangesAsync(IDbContextTransaction transaction);
 }
 
 
@@ -85,6 +65,8 @@ public class UnitOfWorkInterceptor : IInterceptor
         //判断是否为异步
         if (IsAsync(invocation.Method))
         {
+            invocation.Proceed();
+
             if (invocation.Method.ReturnType == typeof(Task))
             {
                 invocation.ReturnValue = InternalAsyncHelper.AwaitTaskWithPostActionAndFinally(
