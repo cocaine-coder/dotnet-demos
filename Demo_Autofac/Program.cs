@@ -1,5 +1,7 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Autofac.Extras.DynamicProxy;
+using Demo_Autofac.Aop;
 using Demo_Autofac.Repositories;
 using Demo_Autofac.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +43,21 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(builder
 
     //泛型动态注入 
     builder.RegisterGeneric(typeof(TemplateService<,>))
-        .As(typeof(ITemplateService<,>));
+        .As(typeof(ITemplateService<,>))
+        .EnableInterfaceInterceptors();
+
+    //注入个人实现的aop
+    builder.RegisterType(typeof(CustomAutofacAop));
+
+    #region 注册所有控制器的关系及控制器实例化所需要的组件
+
+    var controllersTypesInAssembly = Assembly.GetExecutingAssembly().GetExportedTypes()
+        .Where(type => typeof(ControllerBase).IsAssignableFrom(type)).ToArray();
+
+    builder.RegisterTypes(controllersTypesInAssembly)
+        .PropertiesAutowired();
+
+    #endregion
 }));
 
 builder.Services.AddEndpointsApiExplorer();
@@ -72,13 +88,16 @@ useMathService.Add(x1, x2);
 return Results.Ok(mathService.Add(x1, x2));
 });
 
-// 测试注入方式
-app.MapGet("test/others", ([FromServices] ITemplateService<int, string> treeBaseService) =>
+/// <summary>
+/// 测试注入方式
+/// </summary>
+app.MapGet("test/others",async ([FromServices] ITemplateService<int, string> treeBaseService) =>
 {
     treeBaseService.GetNode(1);
 
-    return Results.Ok();
+    return Results.Ok(await treeBaseService.GetKeyAsync(1));
 }); 
+
 #endregion
 
 app.Run();
