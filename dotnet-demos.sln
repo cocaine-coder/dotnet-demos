@@ -9,11 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_Serilog", "Demo_Serilo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_Autofac", "Demo_Autofac\Demo_Autofac.csproj", "{B7D7686A-736C-411C-AAD9-72EE83E4BD38}"
 EndProject
-<<<<<<< HEAD
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_AspNetCoreRateLimit", "Demo_AspNetCoreRateLimit\Demo_AspNetCoreRateLimit.csproj", "{2FD384DB-3781-4A21-8AB8-50BE44F042A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_AspNetCoreRateLimit", "Demo_AspNetCoreRateLimit\Demo_AspNetCoreRateLimit.csproj", "{2FD384DB-3781-4A21-8AB8-50BE44F042A2}"
 EndProject
->>>>>>> d627ca28b0516976c2220ba661708b87d313de0a
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo_Mqtt", "Demo_Mqtt", "{FB09B26B-B944-4A10-8BCB-FB6FA8EE83CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttServer", "Demo_Mqtt\MqttServer\MqttServer.csproj", "{E9434048-4916-4AD6-BAB3-09E3CEC9F048}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,16 +33,20 @@ Global
 		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D7686A-736C-411C-AAD9-72EE83E4BD38}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
-=======
 		{2FD384DB-3781-4A21-8AB8-50BE44F042A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FD384DB-3781-4A21-8AB8-50BE44F042A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FD384DB-3781-4A21-8AB8-50BE44F042A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FD384DB-3781-4A21-8AB8-50BE44F042A2}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> d627ca28b0516976c2220ba661708b87d313de0a
+		{E9434048-4916-4AD6-BAB3-09E3CEC9F048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9434048-4916-4AD6-BAB3-09E3CEC9F048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9434048-4916-4AD6-BAB3-09E3CEC9F048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9434048-4916-4AD6-BAB3-09E3CEC9F048}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9434048-4916-4AD6-BAB3-09E3CEC9F048} = {FB09B26B-B944-4A10-8BCB-FB6FA8EE83CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66280F7A-94AA-4496-9CC0-A9D526C2EA91}

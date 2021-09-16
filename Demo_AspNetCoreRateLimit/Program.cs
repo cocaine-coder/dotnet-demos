@@ -24,9 +24,29 @@ if (builder.Environment.IsDevelopment())
 if (builder.Configuration.GetValue("AspNetCoreRateLimit:InUse", false))
     app.UseMiddleware<IPLimitMiddleware>();
 
+/// <summary>
+/// 全局限流，1s上限两次
+/// </summary>
 app.MapGet("api/limite_1", () =>
 {
     return Results.Ok(DateTime.Now);
+});
+
+/// <summary>
+/// 这是一个渲染ui的接口，在限流配置中不做限制
+/// </summary>
+app.MapGet("ui/limite_2", () =>
+{
+    return Results.Text(@$"
+     <html>
+        <header>
+            <title>limite</title>
+        </header>
+        <body>
+            <p>this is a limite test</p>
+        </body>
+     </html>
+    ","text/html");
 });
 
 app.Run();
