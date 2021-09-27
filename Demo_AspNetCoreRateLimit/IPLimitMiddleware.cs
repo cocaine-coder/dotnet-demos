@@ -1,6 +1,5 @@
-﻿
-using AspNetCoreRateLimit;
-using Microsoft.Extensions.Options;
+﻿using AspNetCoreRateLimit;
+
 
 namespace Demo_AspNetCoreRateLimit;
 public class IPLimitMiddleware : IpRateLimitMiddleware

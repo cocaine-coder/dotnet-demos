@@ -1,5 +1,4 @@
-﻿
-using AspNetCoreRateLimit;
+﻿using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.DataProtection;
 using StackExchange.Redis;
 
