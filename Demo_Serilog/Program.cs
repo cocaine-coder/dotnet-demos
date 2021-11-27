@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((hostBuilderContext, loggerConfiguration) =>
 {
     loggerConfiguration.ReadFrom.Configuration(hostBuilderContext.Configuration);
+    new LoggerConfiguration().WriteTo.Console(restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Warning);
 });
 
 // Add services to the container.

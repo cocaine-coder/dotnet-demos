@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_AspNetCoreRateLimit", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_EFCore", "Demo_EFCore\Demo_EFCore.csproj", "{EF10375C-50C7-4CF5-8574-3FF7AD35CDFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_Polly", "Demo_Polly\Demo_Polly.csproj", "{66E1A6FC-EF74-406E-96CD-5F04CF4A3220}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{EF10375C-50C7-4CF5-8574-3FF7AD35CDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF10375C-50C7-4CF5-8574-3FF7AD35CDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF10375C-50C7-4CF5-8574-3FF7AD35CDFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66E1A6FC-EF74-406E-96CD-5F04CF4A3220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66E1A6FC-EF74-406E-96CD-5F04CF4A3220}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66E1A6FC-EF74-406E-96CD-5F04CF4A3220}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66E1A6FC-EF74-406E-96CD-5F04CF4A3220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

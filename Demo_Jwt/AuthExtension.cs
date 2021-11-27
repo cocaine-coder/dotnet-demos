@@ -56,20 +56,20 @@ public static class AuthExtension
                 //请求在未认证之前的handler
                 OnMessageReceived = context =>
                 {
-                    //如果query参数中存在access_token则将该值作为认证token传递
-                    if (context.Request.Query.TryGetValue("access_token", out var token))
-                        context.Token = token;
+                    context.Request.Headers.TryGetValue("Authorization", out var token);
+                    if (!string.IsNullOrEmpty(token))
+                        token = token.First().Split(' ').Last();
 
                     //如果query中不存在access_token则在request header中查找，为下面修改过期策略做准备
-                    if (string.IsNullOrEmpty(token))
+                    if (string.IsNullOrWhiteSpace(token))
                     {
-                        context.Request.Headers.TryGetValue("Authorization", out token);
-                        if (!string.IsNullOrEmpty(token))
-                            token = token.First().Split(' ').Last();
+                        //如果query参数中存在access_token则将该值作为认证token传递
+                        if (context.Request.Query.TryGetValue("access_token", out token))
+                            context.Token = token;
                     }
 
                     //如果请求中确实存在token则验证token中是否存在SecurityJwtConfig.Forever的claim 存在=>不判断过期  不存在=>判断过期
-                    if (!string.IsNullOrEmpty(token) && 
+                    if (!string.IsNullOrWhiteSpace(token) &&
                         new JwtSecurityTokenHandler().ReadJwtToken(token)?.Claims?.FirstOrDefault(x => x.Type == SecurityJwtConfig.Forever) != null)
                         options.TokenValidationParameters.ValidateLifetime = false;
 
