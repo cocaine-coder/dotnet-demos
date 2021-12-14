@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_AspNetCoreRateLimit", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_EFCore", "Demo_EFCore\Demo_EFCore.csproj", "{EF10375C-50C7-4CF5-8574-3FF7AD35CDFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_Hangfire", "Demo_Hangfire\Demo_Hangfire.csproj", "{AF9A9B3F-A442-4720-9D93-AE10A00DDD07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_Hangfire", "Demo_Hangfire\Demo_Hangfire.csproj", "{AF9A9B3F-A442-4720-9D93-AE10A00DDD07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_MediatR", "Demo_MediatR\Demo_MediatR.csproj", "{CD8EB942-DB4D-4C8A-A796-ED26878019C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AF9A9B3F-A442-4720-9D93-AE10A00DDD07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF9A9B3F-A442-4720-9D93-AE10A00DDD07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF9A9B3F-A442-4720-9D93-AE10A00DDD07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8EB942-DB4D-4C8A-A796-ED26878019C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8EB942-DB4D-4C8A-A796-ED26878019C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8EB942-DB4D-4C8A-A796-ED26878019C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8EB942-DB4D-4C8A-A796-ED26878019C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
