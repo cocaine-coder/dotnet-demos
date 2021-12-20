@@ -1,3 +1,5 @@
+using Demo_FluentValidation.Controllers;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers()
     .AddFluentValidation(config =>
     {
-        config.AutomaticValidationEnabled = false;
+        config.RegisterValidatorsFromAssemblyContaining<AddUserCommandValidator>();
     });
 
 builder.Services.AddSwaggerGen();
