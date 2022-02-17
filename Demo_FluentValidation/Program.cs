@@ -1,5 +1,4 @@
 using Demo_FluentValidation.Controllers;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

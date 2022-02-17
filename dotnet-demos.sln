@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_Hangfire", "Demo_Hangf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_MediatR", "Demo_MediatR\Demo_MediatR.csproj", "{CD8EB942-DB4D-4C8A-A796-ED26878019C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_FluentValidation", "Demo_FluentValidation\Demo_FluentValidation.csproj", "{21A2E95C-68AF-46E2-8702-10D9C941C03E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo_FluentValidation", "Demo_FluentValidation\Demo_FluentValidation.csproj", "{21A2E95C-68AF-46E2-8702-10D9C941C03E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_Html2Pdf", "Demo_Html2Pdf\Demo_Html2Pdf.csproj", "{5DEFC18D-6C37-4054-87DC-DB18391BBE77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{21A2E95C-68AF-46E2-8702-10D9C941C03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21A2E95C-68AF-46E2-8702-10D9C941C03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21A2E95C-68AF-46E2-8702-10D9C941C03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DEFC18D-6C37-4054-87DC-DB18391BBE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DEFC18D-6C37-4054-87DC-DB18391BBE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DEFC18D-6C37-4054-87DC-DB18391BBE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DEFC18D-6C37-4054-87DC-DB18391BBE77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
