@@ -1,8 +1,10 @@
 using Demo_MediatR;
 using Demo_MediatR.Notification;
+using Demo_MediatR.PipelineBehavior;
 using Demo_MediatR.Request;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 services.AddMediatR(typeof(Program));
+services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 services.AddSingleton(typeof(DataContext));
 
 services.AddEndpointsApiExplorer();
