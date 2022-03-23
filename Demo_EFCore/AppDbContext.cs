@@ -1,10 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Text;
+using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Demo_EFCore
 {
+
     internal class AppDbContext : DbContext
     {
+        private const string connectString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=efcore_demo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private int? tenantId;
 
         public DbSet<Cart> Carts { get; set; }
@@ -14,6 +17,10 @@ namespace Demo_EFCore
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<Post> Posts { get; set; }
+
+        public DbSet<Website> Websites { get; set; }
+
+        public DbSet<AccessLog> AccessLogs { get; set; }
 
         public AppDbContext(int? tenantId = null)
         {
@@ -26,7 +33,7 @@ namespace Demo_EFCore
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseInMemoryDatabase("test");
+            optionsBuilder.UseSqlServer(connectString).LogTo(Console.WriteLine,LogLevel.Information);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -106,6 +113,12 @@ namespace Demo_EFCore
         }
     }
 
+    public class EntityBase
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
+    }
+
     #region 继承
 
     internal enum CartType
@@ -116,10 +129,8 @@ namespace Demo_EFCore
         Bicycle
     }
 
-    internal class Cart
+    internal class Cart : EntityBase
     {
-        public int Id { get; set; }
-
         public string? Name { get; set; }
     }
 
@@ -153,10 +164,8 @@ namespace Demo_EFCore
         Unicorn
     }
 
-    internal class Rider
+    internal class Rider : EntityBase
     {
-        public int Id { get; set; }
-
         //可以在这里进行值转换
         //[Column(TypeName = "nvarchar(24)")]
         public EquineBeast Mount { get; set; }
@@ -165,37 +174,51 @@ namespace Demo_EFCore
 
     #region 全局查询筛选器
 
-    public class Blog
+    public class Blog : EntityBase
     {
-      
-
-        public Blog(int tenantId , int blogId,string name,string url)
+     
+        public Blog(int tenantId , int id,string name,string url)
         {
             this.TenantId = tenantId;
-            this.BlogId = blogId;
+            this.Id = id;
             this.Name = name;
             this.Url = url;
         }
 
         public int TenantId { get; set; }
 
-        public int BlogId { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
 
         public List<Post> Posts { get; set; }
     }
 
-    public class Post
+    public class Post : EntityBase
     {
-        public int PostId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public bool IsDeleted { get; set; }
 
         public Blog Blog { get; set; }
-    } 
+    }
 
     #endregion
 
+    #region sql join
+
+    public class Website : EntityBase
+    {
+        public string Name { get; set; }
+    }
+
+    public class AccessLog : EntityBase
+    {
+        public int SiteId { get; set; }
+
+        public int Count { get; set; }
+
+        public DateTime Date { get; set; }
+    }
+
+    #endregion
 }
